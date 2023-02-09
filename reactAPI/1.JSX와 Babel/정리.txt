@@ -1,0 +1,6 @@
+Babel은 Javascript Compiler이다
+컴파일러 : 언어해석기, 특정언어를 다른 프로그래밍 언어로 옮기는 프로그램
+
+use strict : 엄격모드. 제약조건들 많다.
+문자열 템플릿
+const element=
