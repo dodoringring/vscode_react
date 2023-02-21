@@ -8,7 +8,10 @@
     <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.development.js"
-    ></script>
+      ></script>
+      <!-- ES5와같은 버전에서도 동작하도록 지원받기 위해서 바벨도 주입 받음
+      CDN방식 로컬PC캐쉬 사용함-시스템 사용 발생
+    unpkg방식 네트워크 통해 객체 주입-속도 향상 -->
     <script
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
@@ -18,23 +21,29 @@
     <!-- unpkg 빠륵 로딩시간이 덜 걸린다네요...  -->
   </head>
   <body>
+    <!-- 아래 내부 노드에 리액트를 통해서 생산된 태그 들어옴 -->
     <div id="root"></div>
     <style>
       .title {
-        color: thistle;
+        color: rgb(219, 67, 219);
       }
     </style>
     <!-- babel이 타입이어야 리액트 코드로 자바스크립트를 컵파일 해준다. -->
     <script type="text/babel">
-      const rootElement = document.querySelector("#root");
-      const element = React.createElement(
-        "h1",
-        {
+      //자바 스크립트에서 html노드를 접근하기 위해서 브라우저의 내장 객체인 도큐먼트는 querySelector를 지원 한다.
+      const rootElement = document.querySelector("#root");//아이디인 경우 반드시 #을 붙여야된다.
+      const element = React.createElement(//DOM생성하기 creatElement가 리액트에서 제공하는 함수
+      //React에서 제공하는 createElement함수로 태그를 생성 가능함
+      //스타일 추가시에는 반드시 class속성이 아니라 className으로 해야함 
+      "h1",
+        {/* css디자인 주기 */
           className: "title",
         },
-        ["JAVA", "React", "Spring"]
+        ["JAVA", "React", "Spring"]/* 배열 객체 h1의 자식들 */
       );
       ReactDOM.createRoot(rootElement).render(element);
+      /* 리액드 돔은 루트 접근 위한것이다. create root해달라는 뜻. 위치는 root
+      rendor함수가 그리는 담당. element를 그려라. */
     </script>
   </body>
 </html>
