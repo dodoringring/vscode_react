@@ -1,0 +1,19 @@
+Element찍기
+Fuction->재사용 가능한 element생성
+함수이지만 element이다.
+
+const Paint =({props})=>{
+  //props로 구조분해 할당을 사용해야한다.
+}
+
+const Paint=({title, desciption})=>{
+  return(
+    <>---이름 플래그먼트
+
+    <h1>{title}</h1>
+
+    {}는 변수자리
+
+    </>
+  )
+}

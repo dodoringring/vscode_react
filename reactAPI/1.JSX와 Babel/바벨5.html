@@ -31,6 +31,7 @@
       const subject = "React";
       const 클래스이름 = "title";
       const props = { className: 클래스이름, children: subject };
+      //스프레드 연산자를 사용한 코드 리액트에서는 내가 태그 만들 수 있다.
       const 사용자정의태그 = <h1 {...props} />;
       ReactDOM.createRoot(rootElement).render(사용자정의태그);
     </script>

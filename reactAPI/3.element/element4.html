@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const rootElement = document.querySelector("#root");
+      //Paint를 소문자로 하지 않아야함 - 에러발생
+      const Paint = ({ title, description,children}) => (
+        // 앞글자 반드시 대문자여야함**
+          <>
+            <h1>{title}</h1>
+            <h2>{description}</h2>
+            {children}
+          </>
+        );
+         //Paint라는 함수를 반복해서 Element에 넣어줄 수 있다.
+
+      const Nice =()=><h3>React Nice!!!==>리랜더링</h3>
+
+      const element = //여러개 작성해서 그룹핑 가능 //리액트 문법이라고 함,,
+        (
+          <>
+            <Paint title="React" description="가상돔활용가능">
+              <Nice />
+              <Nice />
+              <Nice />
+            </Paint>
+          </>
+        );
+      ReactDOM.createRoot(rootElement).render(element);
+    </script>
+  </body>
+</html>
